@@ -82,10 +82,12 @@ impl App {
     fn handle_key_event(&mut self, key_event: KeyEvent) {
         match key_event.code {
             KeyCode::Char('q') => self.exit(),
+            KeyCode::Esc => self.exit(),
             KeyCode::Left => self.decrement_counter(),
             KeyCode::Right => self.increment_counter(),
             KeyCode::Char('L') => self.self_log_time(),
             KeyCode::Tab => self.next_focus(),
+            KeyCode::BackTab => self.previous_focus(),
             _ => {}
         }
     }
@@ -103,6 +105,13 @@ impl App {
     }
 
     fn next_focus(&mut self) {
+        self.focused_widget = match self.focused_widget {
+            FocusedWidgetArea::Menu => FocusedWidgetArea::Actions,
+            FocusedWidgetArea::Actions => FocusedWidgetArea::Menu,
+        }
+    }
+
+    fn previous_focus(&mut self) {
         self.focused_widget = match self.focused_widget {
             FocusedWidgetArea::Menu => FocusedWidgetArea::Actions,
             FocusedWidgetArea::Actions => FocusedWidgetArea::Menu,
