@@ -1,5 +1,5 @@
-# LazyFloat
-LazyFloat is a TUI inspired by lazydocker and lazygit that I am building as part of my journey into learning Rust. My goal with this is to integrate with the float.com API to give developers a terminal based way of logging time with float. 
+# LazyApp
+This repo is a TUI inspired by lazydocker and lazygit that I am building as part of my journey into learning Rust. My goal is to integrate this with some sort of tool or api. 
 
 ## Setting up
 Start by cloning this repository to your machine. Ensure you have the Rust language installed. This can be easily installed via homebrew:
